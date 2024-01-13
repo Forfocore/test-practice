@@ -4,9 +4,10 @@ import managers.DriverManager;
 import managers.InitManager;
 import managers.PageManager;
 import managers.PropsManager;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import static props.PropConst.BASE_URL;
 
@@ -16,20 +17,20 @@ public class CommonTest {
 
     private final DriverManager driverManager = DriverManager.getDriverManager();
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeAll() {
         InitManager.initFramework();
     }
 
-    @Before
+    @BeforeEach
     public void beforeEach() {
         driverManager.getDriver().get(PropsManager.getPropsManager().getProperty(BASE_URL));
     }
 
-    /*
-    @AfterClass
+
+    @AfterAll
     public static void afterAll() {
         InitManager.quitFramework();
     }
-     */
+
 }

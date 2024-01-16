@@ -1,5 +1,6 @@
 package managers;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.*;
@@ -33,6 +34,7 @@ public class JDBCManager {
         return connection.createStatement();
     }
 
+    @Step("Выбираем все данные из таблицы")
     public void selectAll() throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD");
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -42,11 +44,12 @@ public class JDBCManager {
                     resultSet.getString("FOOD_NAME");
             String type = resultSet.getString("FOOD_TYPE");
             boolean exotic = resultSet.getBoolean("FOOD_EXOTIC");
-            System.out.printf(String.valueOf(id) + " " +
-                    name + " " + type + " " + String.valueOf(exotic) + "\n");
+            System.out.printf(id + " " +
+                    name + " " + type + " " + exotic + "\n");
         }
     }
 
+    @Step("Добавляем строку с данными {id}, {name}, {type}, {exotic}")
     public void addRow(int id, String name, String type, int exotic) throws SQLException {
         String insert = "INSERT INTO FOOD VALUES (?, ?, ?, ?)";
         preparedStatement = connection.prepareStatement(insert);
@@ -57,6 +60,7 @@ public class JDBCManager {
         preparedStatement.executeUpdate();
     }
 
+    @Step("Проверяем добавленные данные")
     public void checkAdd(int id, String name, String type, int exotic) throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD WHERE FOOD_ID = ?");
         preparedStatement.setInt(1, id);
@@ -74,12 +78,14 @@ public class JDBCManager {
 
     }
 
+    @Step("Удаляем запись с ID {id}")
     public void deleteById(int id) throws SQLException {
         preparedStatement = connection.prepareStatement("DELETE FROM FOOD WHERE FOOD_ID = ?");
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 
+    @Step("Проверяем удалена ли запись с ID {id}")
     public void checkDeleted(int id) throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD");
         ResultSet resultSet = preparedStatement.executeQuery();

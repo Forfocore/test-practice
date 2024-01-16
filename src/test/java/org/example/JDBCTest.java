@@ -2,19 +2,21 @@ package org.example;
 
 import managers.JDBCManager;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 
-public class JDBCTest {
+public class JDBCTest extends CommonTest {
 
+    @DisplayName("Тестирование добавления записи в БД при помощи JDBC и её последующее удаление")
     @Test
     public void start() throws SQLException {
         JDBCManager jdbcManager = JDBCManager.getJDBCManager();
 
-        int id = 5;
+        int id = 100;
         String name = "Мандарин";
         String type = "FRUIT";
         int exotic = 1;

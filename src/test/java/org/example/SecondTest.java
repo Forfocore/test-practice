@@ -1,15 +1,18 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class SecondTest extends CommonTest {
 
+
+
+    @DisplayName("Тестирование добавления записи в таблицу с нетипичными данными")
     @Test
     public void start() {
-        String name = "123450$%~?!";
+        String name = "123450$&!";
         String type = "VEGETABLE";
-        boolean exotic = false;
+        String exotic = "false";
         app.getFirstPage()
                 .selectMenu()
                 .selectFood()

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import managers.DriverManager;
 import managers.PageManager;
 import managers.PropsManager;
@@ -25,14 +26,18 @@ public class CommonPage {
 
     private final PropsManager props = PropsManager.getPropsManager();
 
+
     public CommonPage() {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
+
+    @Step("Ждем пока {element} станет кликабельным")
     protected WebElement waitUtilElementToBeClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    @Step("Заполняем поле '{field}' данными '{value}'")
     protected void fillInputField(WebElement field, String value) {
         waitUtilElementToBeClickable(field).click();
         field.sendKeys(value);

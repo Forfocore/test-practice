@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 public class FirstTest extends CommonTest {
 
-    @DisplayName("Тестирование добавления записи в таблицу с типичными данными")
+    @DisplayName("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Сѓ СЃ С‚РёРїРёС‡РЅС‹РјРё РґР°РЅРЅС‹РјРё")
     @Test
     public void start() {
-        String name = "Мандарин";
+        String name = "РњР°РЅРґР°СЂРёРЅ";
         String type = "FRUIT";
         String exotic = "true";
         app.getFirstPage()
@@ -17,6 +17,7 @@ public class FirstTest extends CommonTest {
                 .clickAdd()
                 .fillForm(name, type, exotic)
                 .clickSave()
-                .checkResult(name, type == "VEGETABLE" ? "Овощ" : "Фрукт", exotic);
+                .checkResult(name, type == "VEGETABLE" ? "РћРІРѕС‰" : "Р¤СЂСѓРєС‚", exotic);
+
     }
 }

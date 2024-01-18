@@ -34,7 +34,7 @@ public class JDBCManager {
         return connection.createStatement();
     }
 
-    @Step("Выбираем все данные из таблицы")
+    @Step("Р’С‹Р±РёСЂР°РµРј РІСЃРµ РґР°РЅРЅС‹Рµ РёР· С‚Р°Р±Р»РёС†С‹")
     public void selectAll() throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD");
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -49,7 +49,7 @@ public class JDBCManager {
         }
     }
 
-    @Step("Добавляем строку с данными {id}, {name}, {type}, {exotic}")
+    @Step("Р”РѕР±Р°РІР»СЏРµРј СЃС‚СЂРѕРєСѓ СЃ РґР°РЅРЅС‹РјРё {id}, {name}, {type}, {exotic}")
     public void addRow(int id, String name, String type, int exotic) throws SQLException {
         String insert = "INSERT INTO FOOD VALUES (?, ?, ?, ?)";
         preparedStatement = connection.prepareStatement(insert);
@@ -60,7 +60,7 @@ public class JDBCManager {
         preparedStatement.executeUpdate();
     }
 
-    @Step("Проверяем добавленные данные")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј РґРѕР±Р°РІР»РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ")
     public void checkAdd(int id, String name, String type, int exotic) throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD WHERE FOOD_ID = ?");
         preparedStatement.setInt(1, id);
@@ -78,14 +78,14 @@ public class JDBCManager {
 
     }
 
-    @Step("Удаляем запись с ID {id}")
+    @Step("РЈРґР°Р»СЏРµРј Р·Р°РїРёСЃСЊ СЃ ID {id}")
     public void deleteById(int id) throws SQLException {
         preparedStatement = connection.prepareStatement("DELETE FROM FOOD WHERE FOOD_ID = ?");
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 
-    @Step("Проверяем удалена ли запись с ID {id}")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј СѓРґР°Р»РµРЅР° Р»Рё Р·Р°РїРёСЃСЊ СЃ ID {id}")
     public void checkDeleted(int id) throws SQLException {
         preparedStatement = connection.prepareStatement("SELECT * FROM FOOD");
         ResultSet resultSet = preparedStatement.executeQuery();

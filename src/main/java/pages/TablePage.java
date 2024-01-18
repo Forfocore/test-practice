@@ -1,6 +1,6 @@
 package pages;
 
-import io.cucumber.java.ru.И;
+import io.cucumber.java.ru.Р;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -32,13 +32,13 @@ public class TablePage extends CommonPage {
     @FindBy(xpath = "//table[@class='table']/tbody")
     private List<WebElement> resultName;
 
-    @Step("Нажимаем кнопку 'Добавить'")
+    @Step("РќР°Р¶РёРјР°РµРј РєРЅРѕРїРєСѓ 'Р”РѕР±Р°РІРёС‚СЊ'")
     public TablePage clickAdd() {
         waitUtilElementToBeClickable(addBtn).click();
         return this;
     }
 
-    @Step("Заполняем форму вводя данные {value}, {key} и {exotc}")
+    @Step("Р—Р°РїРѕР»РЅСЏРµРј С„РѕСЂРјСѓ РІРІРѕРґСЏ РґР°РЅРЅС‹Рµ {value}, {key} Рё {exotc}")
     public TablePage fillForm(String value, String key, String exotc) {
         boolean exotic2 = Boolean.parseBoolean(exotc);
         fillInputField(name, value);
@@ -49,13 +49,13 @@ public class TablePage extends CommonPage {
         return this;
     }
 
-    @Step("Нажимаем кнопку 'Сохранить'")
+    @Step("РќР°Р¶РёРјР°РµРј РєРЅРѕРїРєСѓ 'РЎРѕС…СЂР°РЅРёС‚СЊ'")
     public TablePage clickSave() {
         waitUtilElementToBeClickable(saveBtn).click();
         return this;
     }
 
-    @Step("Сравниваем фактический результат с ожидаемым")
+    @Step("РЎСЂР°РІРЅРёРІР°РµРј С„Р°РєС‚РёС‡РµСЃРєРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ СЃ РѕР¶РёРґР°РµРјС‹Рј")
     public TablePage checkResult(String name, String type, String exotic) {
         Assertions.assertEquals(name, resultName.get(resultName.size() - 1).findElement(By.xpath(".//tr[last()]/td[1]")).getText());
         Assertions.assertEquals(type, resultName.get(resultName.size() - 1).findElement(By.xpath(".//tr[last()]/td[2]")).getText());

@@ -1,10 +1,10 @@
 package pages;
 
 
-import io.cucumber.java.ru.И;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 
 public class FirstPage extends CommonPage {
 
@@ -15,13 +15,13 @@ public class FirstPage extends CommonPage {
     private WebElement food;
 
 
-    @Step("Выбираем в верхнем меню 'Песочница'")
+    @Step("Р’С‹Р±РёСЂР°РµРј РІ РІРµСЂС…РЅРµРј РјРµРЅСЋ 'РџРµСЃРѕС‡РЅРёС†Р°'")
     public FirstPage selectMenu() {
         waitUtilElementToBeClickable(menu).click();
         return this;
     }
 
-    @Step("Выбираем в подменю 'Товары'")
+    @Step("Р’С‹Р±РёСЂР°РµРј РІ РїРѕРґРјРµРЅСЋ 'РўРѕРІР°СЂС‹'")
     public TablePage selectFood() {
         waitUtilElementToBeClickable(food).click();
         return pageManager.getTablePage();

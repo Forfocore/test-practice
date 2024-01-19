@@ -99,6 +99,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>**/*Runner.java</includes>
                     <argLine>
+                        -Dfile.encoding=${encoding.type}
                         -Xmx1024m
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20/aspectjweaver-1.9.20.jar"
                     </argLine>

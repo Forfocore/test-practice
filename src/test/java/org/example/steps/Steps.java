@@ -11,7 +11,6 @@ import pages.TablePage;
 
 public class Steps {
 
-    Object result;
     protected PageManager app = PageManager.getPageManager();
 
     FirstPage firstPage;
@@ -19,6 +18,7 @@ public class Steps {
     TablePage tablePage;
 
     private final DriverManager driverManager = DriverManager.getDriverManager();
+
 
     @И("открыта страница по адресу {string}")
     public void beforeEach(String string1) {

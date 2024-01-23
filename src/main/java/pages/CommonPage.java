@@ -32,6 +32,10 @@ public class CommonPage {
     }
 
 
+    protected WebElement waitUtilElementToBeVisible(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     @Step("Ждем пока {element} станет кликабельным")
     protected WebElement waitUtilElementToBeClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));

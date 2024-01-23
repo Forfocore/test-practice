@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class TablePage extends CommonPage {
 
@@ -29,8 +30,7 @@ public class TablePage extends CommonPage {
     @FindBy(id = "save")
     private WebElement saveBtn;
 
-    @FindBy(xpath = "//table[@class='table']/tbody")
-    private List<WebElement> resultName;
+    private WebElement resultName;
 
     @Step("Нажимаем кнопку 'Добавить'")
     public TablePage clickAdd() {
@@ -52,14 +52,16 @@ public class TablePage extends CommonPage {
     @Step("Нажимаем кнопку 'Сохранить'")
     public TablePage clickSave() {
         waitUtilElementToBeClickable(saveBtn).click();
+        driverManager.getDriver().navigate().refresh();
         return this;
     }
 
     @Step("Сравниваем фактический результат с ожидаемым")
     public TablePage checkResult(String name, String type, String exotic) {
-        Assertions.assertEquals(name, resultName.get(resultName.size() - 1).findElement(By.xpath(".//tr[last()]/td[1]")).getText());
-        Assertions.assertEquals(type, resultName.get(resultName.size() - 1).findElement(By.xpath(".//tr[last()]/td[2]")).getText());
-        Assertions.assertEquals(exotic, resultName.get(resultName.size() - 1).findElement(By.xpath(".//tr[last()]/td[3]")).getText());
+        resultName = driverManager.getDriver().findElement(By.xpath(".//table[@class='table']/tbody"));
+        Assertions.assertEquals(name, resultName.findElement(By.xpath("tr[last()]/td[1]")).getText());
+        Assertions.assertEquals(type, resultName.findElement(By.xpath("tr[last()]/td[2]")).getText());
+        Assertions.assertEquals(exotic, resultName.findElement(By.xpath("tr[last()]/td[3]")).getText());
         return this;
     }
 }

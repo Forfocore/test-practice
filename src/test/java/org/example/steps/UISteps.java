@@ -4,12 +4,11 @@ import io.cucumber.java.ru.И;
 import managers.DriverManager;
 import managers.InitManager;
 import managers.PageManager;
-import managers.PropsManager;
 import pages.FirstPage;
 import pages.TablePage;
 
 
-public class Steps {
+public class UISteps {
 
     protected PageManager app = PageManager.getPageManager();
 

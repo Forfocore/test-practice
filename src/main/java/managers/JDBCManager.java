@@ -23,16 +23,15 @@ public class JDBCManager {
         return jdbcManager;
     }
 
-    private Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost:9092/mem:testdb", "user", "pass");
+    private Connection connection = DriverManager.getConnection(
+            PropsManager.getPropsManager().getProperty(JDBC_URL),
+            PropsManager.getPropsManager().getProperty(JDBC_USER),
+            PropsManager.getPropsManager().getProperty(JDBC_PASS));
 
-    private Statement statement = connection.createStatement();
     private PreparedStatement preparedStatement;
 
 
 
-    public Statement getStatement() throws SQLException {
-        return connection.createStatement();
-    }
 
     @Step("Выбираем все данные из таблицы")
     public void selectAll() throws SQLException {

@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PropsManager {
 
-    private final Properties properties = new Properties();
+    private Properties properties = new Properties();
 
     private static PropsManager INSTANCE = null;
 

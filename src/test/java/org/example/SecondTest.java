@@ -7,7 +7,7 @@ public class SecondTest extends CommonTest {
 
 
 
-    @DisplayName("Тестирование добавления записи в таблицу с нетипичными данными")
+    @DisplayName("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Сѓ СЃ РЅРµС‚РёРїРёС‡РЅС‹РјРё РґР°РЅРЅС‹РјРё")
     @Test
     public void start() {
         String name = "123450$&!";
@@ -19,7 +19,7 @@ public class SecondTest extends CommonTest {
                 .clickAdd()
                 .fillForm(name, type, exotic)
                 .clickSave()
-                .checkResult(name, type == "VEGETABLE" ? "Овощ" : "Фрукт", String.valueOf(exotic));
+                .checkResult(name, type == "VEGETABLE" ? "РћРІРѕС‰" : "Р¤СЂСѓРєС‚", exotic);
 
     }
 }

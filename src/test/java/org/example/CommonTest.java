@@ -1,6 +1,6 @@
 package org.example;
 
-import io.cucumber.java.ru.И;
+import io.cucumber.java.ru.Р;
 import managers.DriverManager;
 import managers.InitManager;
 import managers.PageManager;
@@ -10,12 +10,13 @@ import org.junit.jupiter.api.*;
 
 import static props.PropConst.BASE_URL;
 
-@DisplayName("Постусловия и предусловия для тестирования Web")
+@DisplayName("РџРѕСЃС‚СѓСЃР»РѕРІРёСЏ Рё РїСЂРµРґСѓСЃР»РѕРІРёСЏ РґР»СЏ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ Web")
 public class CommonTest {
 
     protected PageManager app = PageManager.getPageManager();
 
     private final DriverManager driverManager = DriverManager.getDriverManager();
+
 
 
 

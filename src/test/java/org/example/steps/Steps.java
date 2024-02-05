@@ -1,4 +1,4 @@
-package org.example;
+package org.example.steps;
 
 import io.cucumber.java.ru.И;
 import managers.DriverManager;

@@ -32,12 +32,12 @@ public class CommonPage {
     }
 
 
-    @Step("Р–РґРµРј РїРѕРєР° {element} СЃС‚Р°РЅРµС‚ РєР»РёРєР°Р±РµР»СЊРЅС‹Рј")
+    @Step("Ждем пока {element} станет кликабельным")
     protected WebElement waitUtilElementToBeClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    @Step("Р—Р°РїРѕР»РЅСЏРµРј РїРѕР»Рµ '{field}' РґР°РЅРЅС‹РјРё '{value}'")
+    @Step("Заполняем поле '{field}' данными '{value}'")
     protected void fillInputField(WebElement field, String value) {
         waitUtilElementToBeClickable(field).click();
         field.sendKeys(value);

@@ -9,15 +9,15 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 
-public class JDBCTest {
+public class JDBCTest extends CommonTest {
 
-    @DisplayName("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РїРёСЃРё РІ Р‘Р” РїСЂРё РїРѕРјРѕС‰Рё JDBC Рё РµС‘ РїРѕСЃР»РµРґСѓСЋС‰РµРµ СѓРґР°Р»РµРЅРёРµ")
+    @DisplayName("Тестирование добавления записи в БД при помощи JDBC и её последующее удаление")
     @Test
     public void start() throws SQLException {
         JDBCManager jdbcManager = JDBCManager.getJDBCManager();
 
         int id = 100;
-        String name = "РњР°РЅРґР°СЂРёРЅ";
+        String name = "Мандарин";
         String type = "FRUIT";
         int exotic = 1;
 
